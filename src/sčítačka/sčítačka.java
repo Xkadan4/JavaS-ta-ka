@@ -5,6 +5,8 @@
  */
 package sčítačka;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author david.kadanik
@@ -30,32 +32,42 @@ public class sčítačka extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        jButton1_sečti = new javax.swing.JButton();
+        jButton2_konec = new javax.swing.JButton();
+        sčítanec1 = new javax.swing.JTextField();
+        sčítanec2 = new javax.swing.JTextField();
+        Výseldek = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Sčítačka 1");
+        jLabel1.setText("Sčítanec1");
 
-        jLabel2.setText("Sčítačka 3");
+        jLabel2.setText("Výsledek");
 
-        jLabel3.setText("Sčítačka 2");
+        jLabel3.setText("Sčítanec2");
 
-        jButton1.setText("jButton1");
-
-        jButton2.setText("jButton2");
-
-        jTextField2.setText("jTextField2");
-
-        jTextField3.setText("jTextField3");
-
-        jTextField4.setText("jTextField4");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        jButton1_sečti.setText("Sečti");
+        jButton1_sečti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                jButton1_sečtiActionPerformed(evt);
+            }
+        });
+
+        jButton2_konec.setText("Konec");
+        jButton2_konec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2_konecActionPerformed(evt);
+            }
+        });
+
+        sčítanec1.setText("jTextField2");
+
+        sčítanec2.setText("jTextField3");
+
+        Výseldek.setText("jTextField4");
+        Výseldek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VýseldekActionPerformed(evt);
             }
         });
 
@@ -64,60 +76,61 @@ public class sčítačka extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(130, 130, 130)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(144, 144, 144)
-                        .addComponent(jLabel2)))
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(94, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(140, 140, 140)
+                    .addComponent(jLabel1)
                     .addComponent(jLabel3)
-                    .addContainerGap(212, Short.MAX_VALUE)))
+                    .addComponent(jLabel2))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1_sečti, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2_konec, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sčítanec1, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                    .addComponent(sčítanec2)
+                    .addComponent(Výseldek))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(101, 101, 101)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(11, 11, 11)
+                    .addComponent(sčítanec1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sčítanec2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                    .addComponent(Výseldek, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton1_sečti)
+                    .addComponent(jButton2_konec))
                 .addGap(19, 19, 19))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(139, 139, 139)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(138, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    private void VýseldekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VýseldekActionPerformed
+    }//GEN-LAST:event_VýseldekActionPerformed
+
+    private void jButton1_sečtiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_sečtiActionPerformed
+      String text1 =  sčítanec1.getText();
+      String text2 = sčítanec2.getText();
+       long cislo1 = Long.valueOf(text1);
+        long cislo2 = Long.valueOf(text2);
+        long soucet = cislo1 + cislo2;
+Výseldek.setText(Long.toString(soucet));// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1_sečtiActionPerformed
+
+    private void jButton2_konecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2_konecActionPerformed
+System.exit(0);    }//GEN-LAST:event_jButton2_konecActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,13 +168,13 @@ public class sčítačka extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JTextField Výseldek;
+    private javax.swing.JButton jButton1_sečti;
+    private javax.swing.JButton jButton2_konec;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField sčítanec1;
+    private javax.swing.JTextField sčítanec2;
     // End of variables declaration//GEN-END:variables
 }
